@@ -17,6 +17,9 @@ namespace OmloxBackend
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            DeepHub dhr = new DeepHub();
+            dhr.function();
         }
     }
 }
