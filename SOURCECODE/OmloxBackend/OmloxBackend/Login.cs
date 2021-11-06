@@ -15,12 +15,14 @@ namespace OmloxBackend
         public Login()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '*';
             
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //Do stuff
+            testLabel.Text = "Username: " + usernameTextbox.Text + " Password: " + passwordTextBox.Text;
+               
         }
     }
 }

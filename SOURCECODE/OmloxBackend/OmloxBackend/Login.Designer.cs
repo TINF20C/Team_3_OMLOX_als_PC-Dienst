@@ -34,6 +34,7 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.testLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameTextbox
@@ -78,11 +79,20 @@
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Password";
             // 
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Location = new System.Drawing.Point(332, 307);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(0, 13);
+            this.testLabel.TabIndex = 5;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginButton);
@@ -102,6 +112,7 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Label testLabel;
     }
 }
 
