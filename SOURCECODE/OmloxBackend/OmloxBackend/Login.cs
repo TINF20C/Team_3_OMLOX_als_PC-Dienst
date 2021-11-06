@@ -16,13 +16,42 @@ namespace OmloxBackend
         {
             InitializeComponent();
             passwordTextBox.PasswordChar = '*';
-            
-        }
+            this.FormClosed +=
+           new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
 
+        }
+        bool accessGranted = false;
         private void loginButton_Click(object sender, EventArgs e)
         {
+             
             testLabel.Text = "Username: " + usernameTextbox.Text + " Password: " + passwordTextBox.Text;
+
+            GrantAccess();
+            if (accessGranted)
+            {
+                new Mainscreen().Show(); 
+                Close();
+            }
                
         }
+
+        private void GrantAccess() //Nur eine Methode zum Testen
+        {
+           accessGranted = true;
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!accessGranted)
+            {
+                Application.Exit();
+            }
+        }
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
+   
 }
