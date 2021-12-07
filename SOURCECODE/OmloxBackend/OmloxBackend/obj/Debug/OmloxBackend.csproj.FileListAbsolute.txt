@@ -35,3 +35,4 @@ D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.Mainscreen.resources
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\RestSharp.dll
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\RestSharp.xml
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\Json.Net.dll

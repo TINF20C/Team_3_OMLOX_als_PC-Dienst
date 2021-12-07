@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using RestSharp;
+using Newtonsoft.Json.Linq;
 
 namespace OmloxBackend
 {
@@ -47,9 +48,13 @@ namespace OmloxBackend
 
     public class Trackable
     {
+        public string id { get; set; }
         public string type = "omlox";
         public string name { get; set; }
         public Geometry geometry { get; set; }
+        public string[] location_providers { get; set; }
+
+
 
     }
 
@@ -113,6 +118,17 @@ namespace OmloxBackend
 
             return jsonArrayStringToArray(response.Content.ToString());
         }
+        public async Task<Trackable[]> GetTrackableSummary()
+        {
+            //RestSharp
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/summary");
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest();
+            var response = rsClient.Get(request);
+
+            Trackable[] trackables = JsonConvert.DeserializeObject<Trackable[]>(response.Content.ToString());
+            return trackables;
+        }
 
         public void SetTrackable()
         {
@@ -120,7 +136,7 @@ namespace OmloxBackend
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
             var request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody() //Add objekt in the method
+            //request.AddJsonBody(); //Add objekt in the method
 
             //client.PostAsync("https://api.deephub.io/deephub/v1/trackables", )
 

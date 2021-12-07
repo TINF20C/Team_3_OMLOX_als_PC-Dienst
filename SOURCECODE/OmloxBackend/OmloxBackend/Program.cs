@@ -17,6 +17,9 @@ namespace OmloxBackend
            
 
             DeepHub dhr = new DeepHub();
+            dhr.GetTrackableSummary();
+            //Console.WriteLine(trackables);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             (new Login()).Show();
