@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using RestSharp;
 
 namespace OmloxBackend
 {
     public class Geometry
     {
-        public string type { get; set; }
-        public double[][] cooardinates { get; set; }
+        public string type = "Polygon";
+        public double[][][] cooardinates { get; set; }
     }
 
     public class Answer
@@ -31,39 +34,46 @@ namespace OmloxBackend
 
     public class Token
     {
-        private string access_token { get; set; }
-        private int expires_in { get; set; }
-        private int refresh_expires_in { get; set; }
-        private string refresh_token { get; set; }
-        private string token_type { get; set; }
-        private string id_token { get; set; }
-        private int not_before_policy { get; set; }
-        private string session_state { get; set; }
-        private string scope { get; set; }
+        public string access_token { get; set; }
+        public int expires_in { get; set; }
+        public int refresh_expires_in { get; set; }
+        public string refresh_token { get; set; }
+        public string token_type { get; set; }
+        public string id_token { get; set; }
+        public int not_before_policy { get; set; }
+        public string session_state { get; set; }
+        public string scope { get; set; }
     }
+
+    public class Trackable
+    {
+        public string type = "omlox";
+        public string name { get; set; }
+        public Geometry geometry { get; set; }
+
+    }
+
     internal class DeepHub
     {
 
 
 
         HttpClient client = new HttpClient();
-        private string _username;
-        private string _password;
+        Token token;
 
         //Constructor needs username and Password
         //Creates an auth Object for future request authorization
-        public DeepHub(string usernmae, string password)
+        public DeepHub()
         {
-            CreateTokenAsync(usernmae, password);
+            CreateTokenAsync();
         }
 
-        public async void CreateTokenAsync(string username, string password)
+        public async void CreateTokenAsync()
         {
+            /*
             var content = new Dictionary<string, string>();
             content.Add("grant_type", "client_credentials");
             content.Add("client_id", "deephub-release-client");
-            content.Add("username", username);
-            content.Add("password", password);
             content.Add("scope", "openid");
             content.Add("client_secret", "bda13a64-7f5a-4d58-9177-d0ddabbc4dbd");
 
@@ -75,15 +85,56 @@ namespace OmloxBackend
             };
 
             var res = await client.SendAsync(req);
-            Console.WriteLine(res.ToString());
+            string ausgabe = await res.Content.ReadAsStringAsync();
+            token = JsonConvert.DeserializeObject<Token>(ausgabe);
+            GetTrackables();
+            */
+
+            //------------------------------------------------------------------
+            //RestSharp
+            var rsClient = new RestClient("https://api.deephub.io/auth/realms/omlox/protocol/openid-connect/token");
+            var request = new RestRequest(Method.POST);
+            request.AddParameter("grant_type", "client_credentials");
+            request.AddParameter("client_id", "deephub-release-client");
+            request.AddParameter("scope", "openid");
+            request.AddParameter("client_secret", "bda13a64-7f5a-4d58-9177-d0ddabbc4dbd");
+            var response = rsClient.Post(request);
+            string tmp = response.Content.ToString();
+            token = JsonConvert.DeserializeObject<Token>(tmp);
         }
 
-
-        public void function()
+        public async Task<String[]> GetTrackables()
         {
-            //https://stackoverflow.com/questions/9620278/how-do-i-make-calls-to-a-rest-api-using-c
-            //https://docs.microsoft.com/de-de/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client
+            //RestSharp
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest();
+            var response = rsClient.Get(request);
 
+            return jsonArrayStringToArray(response.Content.ToString());
+        }
+
+        public void SetTrackable()
+        {
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest(Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody() //Add objekt in the method
+
+            //client.PostAsync("https://api.deephub.io/deephub/v1/trackables", )
+
+            //var req = new HttpRequestMessage(HttpMethod.Post, "https://api.deephub.io/deephub/v1/trackables");
+        }
+
+        public String[] jsonArrayStringToArray(String arrayString)
+        {
+            arrayString = arrayString.Replace("\\", string.Empty);
+            arrayString = arrayString.Replace("\"", string.Empty);
+            arrayString = arrayString.Replace("[", string.Empty);
+            arrayString = arrayString.Replace("]", string.Empty);
+
+            return Regex.Split(arrayString, ",");
         }
 
     }
