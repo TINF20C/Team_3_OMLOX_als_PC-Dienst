@@ -26,7 +26,7 @@ namespace OmloxBackend
         private async void updateList()
         {
             Console.WriteLine("update List");
-            trackables = await dph.GetTrackableSummary();
+            trackables = dph.GetTrackableSummary();
             deviceList.Items.Clear();
             for (int i = 0; i < trackables.Length; i++)
             {

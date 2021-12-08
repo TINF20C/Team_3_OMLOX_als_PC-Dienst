@@ -58,6 +58,11 @@ namespace OmloxBackend
 
     }
 
+    public class DeleteStatus
+    {
+        public int code { get; set; }
+    }
+
     public class DeepHub
     {
 
@@ -73,7 +78,7 @@ namespace OmloxBackend
             CreateTokenAsync();
         }
 
-        public async void CreateTokenAsync()
+        public void CreateTokenAsync()
         {
             /*
             var content = new Dictionary<string, string>();
@@ -108,7 +113,7 @@ namespace OmloxBackend
             token = JsonConvert.DeserializeObject<Token>(tmp);
         }
 
-        public async Task<String[]> GetTrackables()
+        public String[] GetTrackables()
         {
             //RestSharp
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
@@ -118,7 +123,7 @@ namespace OmloxBackend
 
             return jsonArrayStringToArray(response.Content.ToString());
         }
-        public async Task<Trackable[]> GetTrackableSummary()
+        public Trackable[] GetTrackableSummary()
         {
             //RestSharp
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/summary");
@@ -128,6 +133,16 @@ namespace OmloxBackend
 
             Trackable[] trackables = JsonConvert.DeserializeObject<Trackable[]>(response.Content.ToString());
             return trackables;
+        }
+
+        public bool DeleteTrackable(string trackableID)
+        {
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + trackableID);
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest();
+            var response = rsClient.Delete(request);
+            DeleteStatus res = JsonConvert.DeserializeObject<DeleteStatus>(response.Content.ToString());
+            return res.code == 204 ? true : false;
         }
 
         public void SetTrackable()
