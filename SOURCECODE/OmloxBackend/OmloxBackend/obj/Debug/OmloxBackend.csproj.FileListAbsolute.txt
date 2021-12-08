@@ -31,7 +31,6 @@ D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.Text.Json.xml
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.ValueTuple.xml
-D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.Login.resources
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.Mainscreen.resources
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\RestSharp.dll
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\RestSharp.xml
