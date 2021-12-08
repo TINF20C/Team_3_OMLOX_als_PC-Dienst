@@ -14,10 +14,11 @@ namespace OmloxBackend
     {
         DeepHub dph;
         Trackable[] trackables;
+        Dictionary<int, string> idMap = new Dictionary<int, string>();
         public Mainscreen(DeepHub dph)
         {
             InitializeComponent();
-            this.dph = dph;
+            this.dph = dph;            
             updateList();
             this.FormClosed +=
            new System.Windows.Forms.FormClosedEventHandler(this.Mainscreen_FormClosed);
@@ -28,9 +29,11 @@ namespace OmloxBackend
             Console.WriteLine("update List");
             trackables = dph.GetTrackableSummary();
             deviceList.Items.Clear();
+            idMap.Clear();
             for (int i = 0; i < trackables.Length; i++)
             {
                 string name = trackables[i].name == "" ? "unknown": trackables[i].name;
+                idMap.Add(i, trackables[i].id);
                 deviceList.Items.Add(name);
             }
         }
@@ -54,8 +57,13 @@ namespace OmloxBackend
 
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
-        {
-            //TODO SAMIR: Ausgewähltes Device aus der Trackable-Liste entfernen
+        {        
+
+            foreach(int index in deviceList.CheckedIndices)
+            {
+                dph.DeleteTrackable(idMap[index]);
+            }
+                
         }
 
         private void showButton_Click(object sender, EventArgs e)
