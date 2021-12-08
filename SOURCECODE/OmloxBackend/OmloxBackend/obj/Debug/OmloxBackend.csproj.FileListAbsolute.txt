@@ -8,8 +8,6 @@ D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.CoreCompileInputs.cache
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.exe
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.pdb
-<<<<<<< Updated upstream
-=======
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\Newtonsoft.Json.dll
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\Newtonsoft.Json.xml
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.CopyComplete
@@ -68,4 +66,3 @@ C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxB
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.CopyComplete
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.exe
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.pdb
->>>>>>> Stashed changes

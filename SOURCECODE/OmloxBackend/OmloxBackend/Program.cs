@@ -15,12 +15,14 @@ namespace OmloxBackend
         static void Main()
         {
            
+
+            DeepHub dhr = new DeepHub("jbai", "tinf20comlox1");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             (new Mainscreen()).Show();
             Application.Run();
 
-            DeepHub dhr = new DeepHub();
+            //DeepHub dhr = new DeepHub();
             dhr.function();
         }
     }
