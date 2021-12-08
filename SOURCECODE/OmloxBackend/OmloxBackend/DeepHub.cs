@@ -58,7 +58,7 @@ namespace OmloxBackend
 
     }
 
-    internal class DeepHub
+    public class DeepHub
     {
 
 

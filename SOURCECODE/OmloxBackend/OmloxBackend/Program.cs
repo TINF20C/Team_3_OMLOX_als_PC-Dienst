@@ -15,14 +15,13 @@ namespace OmloxBackend
         static void Main()
         {
            
-
             DeepHub dhr = new DeepHub();
             dhr.GetTrackableSummary();
             //Console.WriteLine(trackables);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            (new Mainscreen()).Show();
+            (new Mainscreen(dhr)).Show();
             Application.Run();
         }
     }

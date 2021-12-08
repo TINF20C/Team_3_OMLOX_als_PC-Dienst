@@ -12,11 +12,26 @@ namespace OmloxBackend
 {
     public partial class Mainscreen : Form
     {
-        public Mainscreen()
+        DeepHub dph;
+        Trackable[] trackables;
+        public Mainscreen(DeepHub dph)
         {
             InitializeComponent();
+            this.dph = dph;
+            updateList();
             this.FormClosed +=
            new System.Windows.Forms.FormClosedEventHandler(this.Mainscreen_FormClosed);
+        }
+
+        private async void updateList()
+        {
+            trackables = await dph.GetTrackableSummary();
+            deviceList.Items.Clear();
+            for (int i = 0; i < trackables.Length; i++)
+            {
+                string name = trackables[i].name == null ? "unknown": trackables[i].name;
+                deviceList.Items.Add(name);
+            }
         }
 
         bool logoutClicked = false;
@@ -44,6 +59,7 @@ namespace OmloxBackend
         {
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
             //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
+
         }
 
 
