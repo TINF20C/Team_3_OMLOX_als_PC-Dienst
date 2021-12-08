@@ -25,6 +25,7 @@ namespace OmloxBackend
 
         private async void updateList()
         {
+            Console.WriteLine("update List");
             trackables = await dph.GetTrackableSummary();
             deviceList.Items.Clear();
             for (int i = 0; i < trackables.Length; i++)
@@ -34,20 +35,9 @@ namespace OmloxBackend
             }
         }
 
-        bool logoutClicked = false;
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            logoutClicked = true;
-            new Login().Show();
-            Close();
-        }
-
         private void Mainscreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!logoutClicked)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
 
         private void Mainscreen_Load(object sender, EventArgs e)

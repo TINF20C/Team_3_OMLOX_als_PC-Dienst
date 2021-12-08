@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.logoutButton = new System.Windows.Forms.Button();
             this.deviceList = new System.Windows.Forms.CheckedListBox();
             this.deviceAddButton = new System.Windows.Forms.Button();
             this.deviceRemoveButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Location = new System.Drawing.Point(713, 13);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 0;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // deviceList
             // 
@@ -97,7 +86,6 @@
             this.Controls.Add(this.deviceRemoveButton);
             this.Controls.Add(this.deviceAddButton);
             this.Controls.Add(this.deviceList);
-            this.Controls.Add(this.logoutButton);
             this.Name = "Mainscreen";
             this.Text = "Mainscreen";
             this.Load += new System.EventHandler(this.Mainscreen_Load);
@@ -106,8 +94,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.CheckedListBox deviceList;
         private System.Windows.Forms.Button deviceAddButton;
         private System.Windows.Forms.Button deviceRemoveButton;
