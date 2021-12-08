@@ -142,7 +142,7 @@ namespace OmloxBackend
             var request = new RestRequest();
             var response = rsClient.Delete(request);
             DeleteStatus res = JsonConvert.DeserializeObject<DeleteStatus>(response.Content.ToString());
-            return res.code == 204 ? true : false;
+            return res == null ? true : false;
         }
 
         public void SetTrackable()

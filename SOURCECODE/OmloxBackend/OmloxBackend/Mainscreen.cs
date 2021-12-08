@@ -57,13 +57,13 @@ namespace OmloxBackend
 
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
-        {        
+        {
 
             foreach(int index in deviceList.CheckedIndices)
             {
                 dph.DeleteTrackable(idMap[index]);
-            }
-                
+            }    
+            updateList();
         }
 
         private void showButton_Click(object sender, EventArgs e)

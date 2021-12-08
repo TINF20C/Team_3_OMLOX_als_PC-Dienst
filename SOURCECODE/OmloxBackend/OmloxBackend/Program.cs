@@ -17,8 +17,7 @@ namespace OmloxBackend
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DeepHub dhr = new DeepHub();
-            dhr.DeleteTrackable("f7d97645-21fb-41d3-8514-0002cc8e9b06");
+            DeepHub dhr = new DeepHub();            
             Mainscreen msc = new Mainscreen(dhr);
 
             
