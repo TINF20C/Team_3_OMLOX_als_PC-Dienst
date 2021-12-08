@@ -32,6 +32,7 @@
             this.deviceAddButton = new System.Windows.Forms.Button();
             this.deviceRemoveButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // deviceList
@@ -41,7 +42,7 @@
             this.deviceList.Items.AddRange(new object[] {
             "device 1",
             "device 2"});
-            this.deviceList.Location = new System.Drawing.Point(26, 30);
+            this.deviceList.Location = new System.Drawing.Point(27, 30);
             this.deviceList.Name = "deviceList";
             this.deviceList.Size = new System.Drawing.Size(304, 364);
             this.deviceList.TabIndex = 2;
@@ -77,11 +78,22 @@
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(338, 120);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 6;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.deviceRemoveButton);
             this.Controls.Add(this.deviceAddButton);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Button deviceAddButton;
         private System.Windows.Forms.Button deviceRemoveButton;
         private System.Windows.Forms.Button showButton;
+        private System.Windows.Forms.Button updateButton;
     }
 }

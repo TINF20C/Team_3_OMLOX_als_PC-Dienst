@@ -30,7 +30,7 @@ namespace OmloxBackend
             deviceList.Items.Clear();
             for (int i = 0; i < trackables.Length; i++)
             {
-                string name = trackables[i].name == null ? "unknown": trackables[i].name;
+                string name = trackables[i].name == "" ? "unknown": trackables[i].name;
                 deviceList.Items.Add(name);
             }
         }
@@ -55,12 +55,19 @@ namespace OmloxBackend
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
         {
-            //TODO generell: Ausgewähltes Device aus der Liste entfernen
+            //TODO SAMIR: Ausgewähltes Device aus der Trackable-Liste entfernen
+            // Nur ein Check
+
         }
 
         private void showButton_Click(object sender, EventArgs e)
         {
             //TODO generell: Ausgewähltes Gerät anzeigen. Entweder nur Name und Position oder mit Map.
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            updateList();
         }
     }
 }

@@ -14,12 +14,13 @@ namespace OmloxBackend
         [STAThread]
         static void Main()
         {
-           
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             DeepHub dhr = new DeepHub();
             Mainscreen msc = new Mainscreen(dhr);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            
             msc.Show();
             Application.Run();
         }
