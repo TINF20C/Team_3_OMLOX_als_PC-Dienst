@@ -56,8 +56,6 @@ namespace OmloxBackend
         private void deviceRemoveButton_Click(object sender, EventArgs e)
         {
             //TODO SAMIR: Ausgewähltes Device aus der Trackable-Liste entfernen
-            // Nur ein Check
-
         }
 
         private void showButton_Click(object sender, EventArgs e)
