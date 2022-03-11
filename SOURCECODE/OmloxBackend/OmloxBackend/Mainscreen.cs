@@ -13,13 +13,15 @@ namespace OmloxBackend
 {
     public partial class Mainscreen : Form
     {
-        DeepHub dph;        
+        DeepHub dph; 
+        Controller controller;
         Trackable[] trackables;
         Dictionary<int, string> idMap = new Dictionary<int, string>();
         public Mainscreen(DeepHub dph)
         {
             InitializeComponent();
-            this.dph = dph;            
+            this.dph = dph;        
+            controller = new Controller();
             updateList();
             this.FormClosed +=
            new System.Windows.Forms.FormClosedEventHandler(this.Mainscreen_FormClosed);
@@ -59,7 +61,7 @@ namespace OmloxBackend
         {
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
             //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
-            Console.WriteLine("adding " + name);
+            controller.sendTrackable(name);
         }
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
