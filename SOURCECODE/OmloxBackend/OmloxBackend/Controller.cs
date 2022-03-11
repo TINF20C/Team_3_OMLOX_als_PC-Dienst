@@ -30,5 +30,20 @@ namespace OmloxBackend
             this.dhp.SetTrackable(trackable);
             return true;    
         }
+
+        public void DeleteTrackable(string trackableID)
+        {
+            dhp.DeleteTrackable(trackableID);
+        }
+
+        public String[] GetTrackables()
+        {
+            return dhp.GetTrackables();
+        }
+
+        public Trackable[] GetTrackableSummary()
+        {
+            return dhp.GetTrackableSummary();
+        }
     }
 }
