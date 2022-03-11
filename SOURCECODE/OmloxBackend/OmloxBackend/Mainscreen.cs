@@ -51,8 +51,9 @@ namespace OmloxBackend
         private void deviceAddButton_Click(object sender, EventArgs e)
         {
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
-            //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.            
+            //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
 
+            deviceList.Items.Add("device");
         }
 
 
@@ -74,6 +75,16 @@ namespace OmloxBackend
         private void button1_Click(object sender, EventArgs e)
         {
             updateList();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
