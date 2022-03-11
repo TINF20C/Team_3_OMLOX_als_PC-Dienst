@@ -58,6 +58,17 @@ namespace OmloxBackend
 
     }
 
+    public class Trackable_Post
+    {
+        public string type = "omlox";
+        public string name { get; set; }
+        public Geometry geometry { get; set; }
+        public string[] location_providers { get; set; } //MAC-Adresses
+
+
+
+    }
+
     public class DeleteStatus
     {
         public int code { get; set; }
@@ -145,7 +156,7 @@ namespace OmloxBackend
             return res == null ? true : false;
         }
 
-        public bool SetTrackable(Trackable trackable)
+        public bool SetTrackable(Trackable_Post trackable)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
