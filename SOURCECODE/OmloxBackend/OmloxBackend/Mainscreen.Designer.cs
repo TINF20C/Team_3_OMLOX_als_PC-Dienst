@@ -152,7 +152,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Mainscreen";
-            this.Text = "Mainscreen";
+            this.Text = "OMLOX PC-Service";
             this.Load += new System.EventHandler(this.Mainscreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
