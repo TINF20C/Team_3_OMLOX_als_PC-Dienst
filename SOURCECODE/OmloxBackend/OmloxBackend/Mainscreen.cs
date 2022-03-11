@@ -13,15 +13,15 @@ namespace OmloxBackend
 {
     public partial class Mainscreen : Form
     {
-        DeepHub dph; 
+        
         Controller controller;
         Trackable[] trackables;
         Dictionary<int, string> idMap = new Dictionary<int, string>();
-        public Mainscreen(DeepHub dph)
+        public Mainscreen()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            this.dph = dph;        
+                   
             controller = new Controller();
             updateList();
             this.FormClosed +=
@@ -30,7 +30,7 @@ namespace OmloxBackend
 
         private async void updateList()
         {            
-            trackables = dph.GetTrackableSummary();
+            trackables = controller.GetTrackableSummary();
             deviceList.Items.Clear();
             idMap.Clear();
             for (int i = 0; i < trackables.Length; i++)
@@ -72,7 +72,7 @@ namespace OmloxBackend
 
             foreach(int index in deviceList.CheckedIndices)
             {
-                dph.DeleteTrackable(idMap[index]);
+                controller.DeleteTrackable(idMap[index]);
             }    
             updateList();
         }

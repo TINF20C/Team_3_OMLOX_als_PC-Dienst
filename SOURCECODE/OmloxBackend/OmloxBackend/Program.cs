@@ -18,7 +18,7 @@ namespace OmloxBackend
             Application.SetCompatibleTextRenderingDefault(false);
 
             DeepHub dhr = new DeepHub();            
-            Mainscreen msc = new Mainscreen(dhr);
+            Mainscreen msc = new Mainscreen();
 
             
             msc.Show();
