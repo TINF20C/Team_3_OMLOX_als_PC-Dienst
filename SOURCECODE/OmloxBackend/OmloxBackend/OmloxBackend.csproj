@@ -89,12 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItemForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddItemForm.Designer.cs">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Controller.cs" />
     <Compile Include="DeepHub.cs" />
     <Compile Include="Mainscreen.cs">
       <SubType>Form</SubType>
@@ -104,9 +99,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddItemForm.resx">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Mainscreen.resx">
       <DependentUpon>Mainscreen.cs</DependentUpon>
     </EmbeddedResource>
