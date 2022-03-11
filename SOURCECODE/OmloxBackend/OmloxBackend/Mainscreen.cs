@@ -19,6 +19,7 @@ namespace OmloxBackend
         Dictionary<int, string> idMap = new Dictionary<int, string>();
         public Mainscreen(DeepHub dph)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.dph = dph;        
             controller = new Controller();
@@ -54,6 +55,7 @@ namespace OmloxBackend
         {
             
             AddItemForm af = new AddItemForm(this);
+            af.StartPosition = FormStartPosition.CenterScreen;
             af.Show(this);
         }
 
