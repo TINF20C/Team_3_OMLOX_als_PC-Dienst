@@ -15,8 +15,20 @@ namespace OmloxBackend
 {
     public class Geometry
     {
+        public Geometry()
+        {
+
+        }
+
+        public Geometry(double latCoord, double lonCoord)
+        {
+            this.cooardinates[0][0][0] = latCoord;
+            this.cooardinates[0][0][1] = lonCoord;
+        }
+
         public string type = "Polygon";
         public double[][][] cooardinates { get; set; }
+
     }
 
     public class Answer
@@ -53,6 +65,17 @@ namespace OmloxBackend
         public string name { get; set; }
         public Geometry geometry { get; set; }
         public string[] location_providers { get; set; }
+
+
+
+    }
+
+    public class Trackable_Post
+    {
+        public string type = "omlox";
+        public string name { get; set; }
+        public Geometry geometry { get; set; }
+        public string[] location_providers { get; set; } //MAC-Adresses
 
 
 
@@ -145,7 +168,7 @@ namespace OmloxBackend
             return res == null ? true : false;
         }
 
-        public bool SetTrackable(Trackable trackable)
+        public bool SetTrackable(Trackable_Post trackable)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
