@@ -35,19 +35,19 @@
             this.showButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.userDocButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // deviceList
             // 
-            this.deviceList.BackColor = System.Drawing.Color.Black;
+            this.deviceList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(244)))), ((int)(((byte)(144)))));
             this.deviceList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.deviceList.CheckOnClick = true;
             this.deviceList.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deviceList.ForeColor = System.Drawing.Color.White;
+            this.deviceList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(26)))), ((int)(((byte)(56)))));
             this.deviceList.FormattingEnabled = true;
             this.deviceList.Items.AddRange(new object[] {
             "device 1",
@@ -56,6 +56,7 @@
             this.deviceList.Name = "deviceList";
             this.deviceList.Size = new System.Drawing.Size(794, 168);
             this.deviceList.TabIndex = 2;
+            this.deviceList.SelectedIndexChanged += new System.EventHandler(this.deviceList_SelectedIndexChanged);
             // 
             // deviceAddButton
             // 
@@ -108,7 +109,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
             this.panel1.Controls.Add(this.userDocButton);
             this.panel1.Controls.Add(this.deviceAddButton);
             this.panel1.Controls.Add(this.deviceRemoveButton);
@@ -121,16 +122,6 @@
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.deviceList);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(90, 284);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(794, 177);
-            this.panel2.TabIndex = 8;
-            // 
             // userDocButton
             // 
             this.userDocButton.FlatAppearance.BorderSize = 0;
@@ -142,11 +133,21 @@
             this.userDocButton.TabIndex = 7;
             this.userDocButton.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
+            this.panel2.Controls.Add(this.deviceList);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(90, 284);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(794, 177);
+            this.panel2.TabIndex = 8;
+            // 
             // Mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

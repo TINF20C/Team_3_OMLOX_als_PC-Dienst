@@ -25,8 +25,7 @@ namespace OmloxBackend
         }
 
         private async void updateList()
-        {
-            Console.WriteLine("update List");
+        {            
             trackables = dph.GetTrackableSummary();
             deviceList.Items.Clear();
             idMap.Clear();
@@ -83,6 +82,11 @@ namespace OmloxBackend
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void deviceList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
