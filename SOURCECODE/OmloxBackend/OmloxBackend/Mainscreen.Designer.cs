@@ -138,9 +138,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
             this.panel2.Controls.Add(this.deviceList);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(90, 284);
+            this.panel2.Location = new System.Drawing.Point(90, 280);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(794, 177);
+            this.panel2.Size = new System.Drawing.Size(794, 181);
             this.panel2.TabIndex = 8;
             // 
             // Mainscreen
