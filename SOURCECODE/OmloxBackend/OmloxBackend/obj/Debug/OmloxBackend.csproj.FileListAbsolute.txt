@@ -63,7 +63,6 @@ C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxB
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.Text.Json.xml
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.ValueTuple.xml
-C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.AssemblyReference.cache
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.SuggestedBindingRedirects.cache
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.Mainscreen.resources
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.Properties.Resources.resources

@@ -64,6 +64,7 @@ namespace OmloxBackend
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
             //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
             controller.sendTrackable(name);
+            updateList();
         }
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
