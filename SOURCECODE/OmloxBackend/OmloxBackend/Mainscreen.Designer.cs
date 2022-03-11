@@ -132,6 +132,7 @@
             this.userDocButton.Size = new System.Drawing.Size(70, 70);
             this.userDocButton.TabIndex = 7;
             this.userDocButton.UseVisualStyleBackColor = true;
+            this.userDocButton.Click += new System.EventHandler(this.userDocButton_Click);
             // 
             // panel2
             // 

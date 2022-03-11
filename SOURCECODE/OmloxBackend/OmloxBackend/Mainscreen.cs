@@ -96,5 +96,10 @@ namespace OmloxBackend
         {
 
         }
+
+        private void userDocButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/TINF20C/Team_3_OMLOX_als_PC-Dienst/wiki");
+        }
     }
 }
