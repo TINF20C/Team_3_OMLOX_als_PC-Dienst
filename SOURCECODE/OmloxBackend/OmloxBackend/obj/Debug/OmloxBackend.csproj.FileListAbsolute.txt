@@ -72,3 +72,4 @@ C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxB
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.CopyComplete
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.exe
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.pdb
+C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.AddItemForm.resources

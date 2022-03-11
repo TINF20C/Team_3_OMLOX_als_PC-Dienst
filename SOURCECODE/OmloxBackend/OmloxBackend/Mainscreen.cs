@@ -50,12 +50,17 @@ namespace OmloxBackend
 
         private void deviceAddButton_Click(object sender, EventArgs e)
         {
-            //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
-            //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
-
-            deviceList.Items.Add("device");
+            
+            AddItemForm af = new AddItemForm(this);
+            af.Show(this);
         }
 
+        public void AddTrackable(string name)
+        {
+            //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
+            //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
+            Console.WriteLine("adding " + name);
+        }
 
         private void deviceRemoveButton_Click(object sender, EventArgs e)
         {
