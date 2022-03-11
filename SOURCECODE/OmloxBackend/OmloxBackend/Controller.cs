@@ -13,9 +13,8 @@ namespace OmloxBackend
 
         public Controller()
         {
-            dhp = new DeepHub();
+            this.dhp = new DeepHub();
         }
-
         public bool sendTrackable(String name)
         {
             Trackable_Post trackable = new Trackable_Post();
@@ -28,7 +27,8 @@ namespace OmloxBackend
             trackable.geometry = geometry;
             //NetworkInterface.GetAllNetworkInterfaces
             trackable.location_providers[0] = "sd:ss:ff:fd:ss";
-            return dhp.SetTrackable(trackable);
+            this.dhp.SetTrackable(trackable);
+            return true;    
         }
     }
 }

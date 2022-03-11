@@ -10,24 +10,34 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using System.Collections;
 
 namespace OmloxBackend
 {
     public class Geometry
     {
-        public Geometry()
-        {
 
-        }
+        public string type = "Polygon";
+        public double[,,] coordinates;
 
         public Geometry(double latCoord, double lonCoord)
         {
-            this.cooardinates[0][0][0] = latCoord;
-            this.cooardinates[0][0][1] = lonCoord;
+            this.coordinates = new double[1, 1, 2] { { { latCoord, lonCoord} } };   
         }
 
-        public string type = "Polygon";
-        public double[][][] cooardinates { get; set; }
+        public void AddLatLong(double latCoord, double longCoord)
+        {
+            //make array one bigger
+            int length = this.coordinates.GetLength(1)+1;
+            double[,,] newArray = new double[1, length, 2];
+
+            newArray = this.coordinates;
+            newArray[0, length-1, 0] = latCoord;
+            newArray[0, length-1, 1] = longCoord;
+            this.coordinates = newArray;
+
+        }
+  
 
     }
 
@@ -75,7 +85,7 @@ namespace OmloxBackend
         public string type = "omlox";
         public string name { get; set; }
         public Geometry geometry { get; set; }
-        public string[] location_providers { get; set; } //MAC-Adresses
+        public string[] location_providers = new string[1]; //MAC-Adresses
 
 
 
@@ -174,10 +184,11 @@ namespace OmloxBackend
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
             var request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(trackable); //Add objekt in the method
+            string test = JsonConvert.SerializeObject(trackable);
+            request.AddJsonBody(test); //Add objekt in the method
 
             var response = rsClient.Post(request);
-            return response.StatusCode == HttpStatusCode.OK ? true : false;
+            return true;
         }
 
         public String[] jsonArrayStringToArray(String arrayString)
