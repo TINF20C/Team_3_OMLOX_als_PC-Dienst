@@ -150,7 +150,7 @@
             this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Mainscreen";
             this.Text = "OMLOX PC-Service";
             this.Load += new System.EventHandler(this.Mainscreen_Load);
