@@ -15,8 +15,20 @@ namespace OmloxBackend
 {
     public class Geometry
     {
+        public Geometry()
+        {
+
+        }
+
+        public Geometry(double latCoord, double lonCoord)
+        {
+            this.cooardinates[0][0][0] = latCoord;
+            this.cooardinates[0][0][1] = lonCoord;
+        }
+
         public string type = "Polygon";
         public double[][][] cooardinates { get; set; }
+
     }
 
     public class Answer
