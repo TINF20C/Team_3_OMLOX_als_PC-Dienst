@@ -145,17 +145,16 @@ namespace OmloxBackend
             return res == null ? true : false;
         }
 
-        public void SetTrackable()
+        public bool SetTrackable(Trackable trackable)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
             var request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
-            //request.AddJsonBody(); //Add objekt in the method
+            request.AddJsonBody(trackable); //Add objekt in the method
 
-            //client.PostAsync("https://api.deephub.io/deephub/v1/trackables", )
-
-            //var req = new HttpRequestMessage(HttpMethod.Post, "https://api.deephub.io/deephub/v1/trackables");
+            var response = rsClient.Post(request);
+            return response.StatusCode == HttpStatusCode.OK ? true : false;
         }
 
         public String[] jsonArrayStringToArray(String arrayString)
