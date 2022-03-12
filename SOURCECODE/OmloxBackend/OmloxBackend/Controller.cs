@@ -45,5 +45,17 @@ namespace OmloxBackend
         {
             return dhp.GetTrackableSummary();
         }
+
+        public void UpdateTrackableCoordinates(string id, double[] coordinates)
+        {
+            Trackable trackable = dhp.GetTrackable(id);
+            trackable.geometry.AddLatLong(coordinates[0], coordinates[1]);
+            dhp.PutTrackable(trackable);
+        }
+
+        public void UpdateTrackable(Trackable trackable)
+        {
+            dhp.PutTrackable(trackable);
+        }
     }
 }

@@ -186,7 +186,6 @@ namespace OmloxBackend
             request.RequestFormat = DataFormat.Json;
             string test = JsonConvert.SerializeObject(trackable);
             request.AddJsonBody(test); //Add objekt in the method
-
             var response = rsClient.Post(request);
             return true;
         }
