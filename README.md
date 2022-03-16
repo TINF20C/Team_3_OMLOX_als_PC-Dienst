@@ -10,8 +10,8 @@ TINF20C DHBW Stuttgart:
 - Julia Bai
 - Juliette Hild
 - Eric Höfert
-- Aaron Kupries
 - Marcel König
+- Aaron Kupries
 - Aaron Weis
 
 ## Access and support by
