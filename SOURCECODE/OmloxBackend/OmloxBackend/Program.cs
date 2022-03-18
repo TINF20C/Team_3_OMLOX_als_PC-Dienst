@@ -16,13 +16,12 @@ namespace OmloxBackend
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            DeepHub dhr = new DeepHub();            
+           
             Mainscreen msc = new Mainscreen();
-
             
             msc.Show();
             Application.Run();
+
         }
     }
 }

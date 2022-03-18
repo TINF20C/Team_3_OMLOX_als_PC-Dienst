@@ -168,6 +168,16 @@ namespace OmloxBackend
             return trackables;
         }
 
+        public Trackable GetTrackable(string id)
+        {
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + id);
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest();
+            var response = rsClient.Get(request);
+            Trackable trackable = JsonConvert.DeserializeObject<Trackable>(response.Content.ToString());
+            return trackable;
+        }
+
         public bool DeleteTrackable(string trackableID)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + trackableID);
@@ -198,6 +208,24 @@ namespace OmloxBackend
             arrayString = arrayString.Replace("]", string.Empty);
 
             return Regex.Split(arrayString, ",");
+        }
+
+        public bool PutTrackable(Trackable trackable)
+        {
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables" + trackable.id);
+            rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
+            var request = new RestRequest(Method.PUT);
+            request.RequestFormat = DataFormat.Json;
+            string test = JsonConvert.SerializeObject(trackable);
+            request.AddJsonBody(test); //Add objekt in the method
+            var response = rsClient.Put(request);
+            if (response.StatusCode == HttpStatusCode.OK) 
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
     }

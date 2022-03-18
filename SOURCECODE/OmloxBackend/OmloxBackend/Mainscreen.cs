@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Device.Location;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,13 @@ namespace OmloxBackend
         {
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
             //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
-            controller.sendTrackable(name);
+            GeoCoordinate position = controller.getPosition();
+            
+            // wenn position nicht bekannt -> manuelle abfrage
+            if (!position.IsUnknown)
+            {
+                controller.createTrackable(name, position.Latitude, position.Longitude);
+            }
             updateList();
         }
 
