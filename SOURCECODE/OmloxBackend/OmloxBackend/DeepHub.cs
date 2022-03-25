@@ -31,7 +31,11 @@ namespace OmloxBackend
             int length = this.coordinates.GetLength(1)+1;
             double[,,] newArray = new double[1, length, 2];
 
-            newArray = this.coordinates;
+            for(int i = 0; i < length-1; i++)
+            {
+                newArray[0,i, 0] = this.coordinates[0, i, 0];
+                newArray[0,i, 1] = this.coordinates[0, i, 1];
+            }
             newArray[0, length-1, 0] = latCoord;
             newArray[0, length-1, 1] = longCoord;
             this.coordinates = newArray;
@@ -212,7 +216,7 @@ namespace OmloxBackend
 
         public bool PutTrackable(Trackable trackable)
         {
-            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables" + trackable.id);
+            var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + trackable.id);
             rsClient.AddDefaultHeader("Authorization", "Bearer " + token.access_token);
             var request = new RestRequest(Method.PUT);
             request.RequestFormat = DataFormat.Json;
