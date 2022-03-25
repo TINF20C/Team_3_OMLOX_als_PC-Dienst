@@ -21,15 +21,6 @@ namespace OmloxBackend
             
             msc.Show();
             Application.Run();
-            
-            var arrList = new List<double[]>
-            {
-                new double[] { 3.32, 34324.434},
-                new double[] { 564.5435, 543.43534},
-        };
-
-            var result = Newtonsoft.Json.JsonConvert.SerializeObject(arrList);
-            Console.WriteLine(result);
         }
     }
 }
