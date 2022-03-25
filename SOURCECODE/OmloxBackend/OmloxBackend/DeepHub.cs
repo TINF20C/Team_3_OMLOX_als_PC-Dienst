@@ -150,6 +150,14 @@ namespace OmloxBackend
             token = JsonConvert.DeserializeObject<Token>(tmp);
         }
 
+
+        /*
+        Get Trackables (Method not used)
+         
+        params: -
+
+        return: String array
+         */
         public String[] GetTrackables()
         {
             //RestSharp
@@ -160,6 +168,15 @@ namespace OmloxBackend
 
             return jsonArrayStringToArray(response.Content.ToString());
         }
+
+
+        /*
+        get all trackables
+
+        params: -
+
+        return: Array of all Trackables
+         */
         public Trackable[] GetTrackableSummary()
         {
             //RestSharp
@@ -172,6 +189,14 @@ namespace OmloxBackend
             return trackables;
         }
 
+
+        /*
+        get a trackables by given ID
+
+        params: ID
+
+        return: trackable
+         */
         public Trackable GetTrackable(string id)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + id);
@@ -182,6 +207,15 @@ namespace OmloxBackend
             return trackable;
         }
 
+
+        /*
+        delete a trackables
+
+        params: trackableID
+
+        return: true if deleted
+                false if not
+         */
         public bool DeleteTrackable(string trackableID)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + trackableID);
@@ -192,6 +226,15 @@ namespace OmloxBackend
             return res == null ? true : false;
         }
 
+
+        /*
+        create a bew trackable
+
+        params: trackable
+
+        return: true if success
+                false if not
+         */
         public bool SetTrackable(Trackable_Post trackable)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables");
@@ -201,9 +244,25 @@ namespace OmloxBackend
             string test = JsonConvert.SerializeObject(trackable);
             request.AddJsonBody(test); //Add objekt in the method
             var response = rsClient.Post(request);
-            return true;
+            
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
+
+        /*
+        converts a jsonArray to C# array
+
+        params: jsonArray as string
+
+        return: c# string array
+         */
         public String[] jsonArrayStringToArray(String arrayString)
         {
             arrayString = arrayString.Replace("\\", string.Empty);
@@ -214,6 +273,15 @@ namespace OmloxBackend
             return Regex.Split(arrayString, ",");
         }
 
+
+        /*
+        Method used by controller to update a trackable
+
+        params: updated Trackable
+
+        return: true if succeeded
+                false if not
+         */
         public bool PutTrackable(Trackable trackable)
         {
             var rsClient = new RestClient("https://api.deephub.io/deephub/v1/trackables/" + trackable.id);

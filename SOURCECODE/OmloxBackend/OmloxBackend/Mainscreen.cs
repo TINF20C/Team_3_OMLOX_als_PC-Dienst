@@ -64,11 +64,17 @@ namespace OmloxBackend
         {
             //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
             //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
+
             GeoCoordinate position = controller.getPosition();
             
             // wenn position nicht bekannt -> manuelle abfrage
-            if (!position.IsUnknown)
+            if (position.IsUnknown)
             {
+                //zeige fenster zur manuellen eingabe
+            } 
+            else
+            {
+                //schicke daten ab
                 controller.createTrackable(name, position.Latitude, position.Longitude);
             }
             updateList();

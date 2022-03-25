@@ -28,6 +28,17 @@ namespace OmloxBackend
             return coord;
         }
 
+
+        /*
+        create a new trackable
+
+        params: name of trackable
+                latitude of device
+                longitude of device
+
+        return: true if succeeded
+                false if not
+         */
         public bool createTrackable(String name, double latCoord, double longCoord)
         {
             Trackable_Post trackable = new Trackable_Post();
@@ -41,10 +52,17 @@ namespace OmloxBackend
        
 
             trackable.location_providers[0] = serial;
-            this.dhp.SetTrackable(trackable);
-            return true;    
+            return this.dhp.SetTrackable(trackable);  
         }
 
+
+        /*
+        get the MotherboardID for identifying the Device
+
+        params: -
+
+        return: MotherboardID
+         */
         private string getBoardID()
         {
             ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
@@ -57,11 +75,29 @@ namespace OmloxBackend
             return serial;
         }
 
-        public void DeleteTrackable(string trackableID)
+
+        /*
+        deete a trackable with given ID
+
+        params: ID 
+
+        return: true if succeeded
+                false if not
+         */
+        public bool DeleteTrackable(string trackableID)
         {
-            dhp.DeleteTrackable(trackableID);
+            return dhp.DeleteTrackable(trackableID);
         }
 
+
+        /*
+        gets a Trackable by name
+
+        params: name of trackable
+
+        return: trackable if exists
+                null if not
+         */
         public Trackable getTrackableByName(string name)
         {
             Trackable[] trackables = dhp.GetTrackableSummary();
@@ -75,31 +111,78 @@ namespace OmloxBackend
             return null;
         }
 
+
+        /*
+        gets a Trackable by MotherboardID
+
+        params: MotherboardID
+
+        return: trackable if exists
+                null if not
+         */
+
+
+
+
+
+        /*
+        get all trackables (not used)
+
+        params: -
+
+        return: String array
+         */
         public String[] GetTrackables()
         {
             return dhp.GetTrackables();
         }
 
+
+        /*
+        gets all trackables
+
+        params: -
+
+        return: Trackable array
+         */
         public Trackable[] GetTrackableSummary()
         {
             return dhp.GetTrackableSummary();
         }
 
-        public bool UpdateTrackableCoordinates(string id, double latCoord, double longCoord)
+
+        /*
+        update trackable with given lat and lon
+
+        params: name of trackable
+                latitude
+                longitude
+
+        return: true if succeded
+                false if not
+         */
+        public bool UpdateTrackableCoordinates(string id, double latCoord, double lonCoord)
         {
             Trackable trackable = dhp.GetTrackable(id);
             //if trackable is not yours
-            //if (trackable.location_providers[0].Equals(getBoardID())) return false;
+            if (trackable.location_providers[0].Equals(getBoardID())) return false;
 
-            trackable.geometry.AddLatLong(latCoord, longCoord);
-            bool status = dhp.PutTrackable(trackable);
-            return status;
+            trackable.geometry.AddLatLong(latCoord, lonCoord);
+            return UpdateTrackable(trackable);
         }
+
+
         /*
-        public void UpdateTrackable(Trackable trackable)
+        update trackable with given object
+
+        params: updated trackable
+
+        return: true if succeeded
+                falde if not
+         */
+        public bool UpdateTrackable(Trackable trackable)
         {
-            dhp.PutTrackable(trackable);
+            return dhp.PutTrackable(trackable);
         }
-        */
     }
 }
