@@ -10,10 +10,27 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 using System.Collections;
 
 namespace OmloxBackend
 {
+
+    public class AddressWrapper
+    {
+        public address address { get; set; }
+    }
+    public class address
+    {
+        public string house_number { get; set; }
+        public string road { get; set; }
+        public string city_block { get; set; }
+        public string county { get; set; }
+        public string state { get; set; }
+        public string postcode { get; set; }
+        public string country { get; set; }
+    } 
+
     public class Geometry
     {
 
@@ -40,6 +57,10 @@ namespace OmloxBackend
             newArray[0, length-1, 1] = longCoord;
             this.coordinates = newArray;
 
+        }
+        public double[] getLatLon(int index)
+        {
+            return new double[2] { this.coordinates[0, index, 0], this.coordinates[0, index, 1] };
         }
   
 
@@ -300,5 +321,24 @@ namespace OmloxBackend
             }
         }
 
+
+        /*
+        getAddress by lat and lon from openstreetmap
+
+        params: double  lat and lon
+
+        return: Address
+         */
+        public address getAddressByCoordinates(double lat, double lon)
+        {
+            var rsClient = new RestClient("https://nominatim.openstreetmap.org/reverse?format=json&lat=" + lat.ToString("G", new CultureInfo("en-US", false)) + "&lon=" + lon.ToString("G", new CultureInfo("en-US", false)));
+            rsClient.AddDefaultHeader("User-Agent", "PostmanRuntime/7.29.0");
+            var request = new RestRequest(Method.GET);
+
+            var response = rsClient.Get(request);
+            AddressWrapper address = JsonConvert.DeserializeObject<AddressWrapper>(response.Content.ToString());
+            return address.address;
+
+        }
     }
 }

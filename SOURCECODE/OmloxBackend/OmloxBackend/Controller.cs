@@ -38,9 +38,13 @@ namespace OmloxBackend
 
         return: true if succeeded
                 false if not
+                false if trackable already exists
          */
         public bool createTrackable(String name, double latCoord, double longCoord)
         {
+            //if a trackable with BoardID exists return false
+            if (getTrackableByBoardID() != null) return false;
+
             Trackable_Post trackable = new Trackable_Post();
             trackable.name = name;
 
@@ -120,19 +124,33 @@ namespace OmloxBackend
         return: trackable if exists
                 null if not
          */
+        public Trackable getTrackableByBoardID()
+        {
+            string id = getBoardID();
+            Trackable[] trackables = dhp.GetTrackableSummary();
+            foreach (Trackable trackable in trackables)
+            {
+                if (trackable.location_providers[0].Equals(id))
+                {
+                    return trackable;
+                }
+            }
+            return null;
+        }
 
 
 
 
 
-        /*
-        get all trackables (not used)
 
-        params: -
+            /*
+            get all trackables (not used)
 
-        return: String array
-         */
-        public String[] GetTrackables()
+            params: -
+
+            return: String array
+             */
+            public String[] GetTrackables()
         {
             return dhp.GetTrackables();
         }
@@ -183,6 +201,36 @@ namespace OmloxBackend
         public bool UpdateTrackable(Trackable trackable)
         {
             return dhp.PutTrackable(trackable);
+        }
+
+
+        /*
+        get address by given lat and long from openstreetmap
+
+        params: updated trackable
+
+        return: true if succeeded
+                falde if not
+         */
+        public address getAddressByCoordinates(Trackable trackable, int index)
+        {
+            double[] coordinates = trackable.geometry.getLatLon(index);
+            return dhp.getAddressByCoordinates(coordinates[0], coordinates[1]);
+        }
+
+        /*
+        get address by given lat and long from openstreetmap
+
+        params: updated trackable
+
+        return: true if succeeded
+                falde if not
+         */
+        public address getLatestAddress(Trackable trackable)
+        {
+            int last = (trackable.geometry.coordinates.Length / 2) -1;
+            double[] coordinates = trackable.geometry.getLatLon(last);
+            return dhp.getAddressByCoordinates(coordinates[0], coordinates[1]);
         }
     }
 }
