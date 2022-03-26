@@ -52,7 +52,7 @@
             this.deviceList.Items.AddRange(new object[] {
             "device 1",
             "device 2"});
-            this.deviceList.Location = new System.Drawing.Point(0, 0);
+            this.deviceList.Location = new System.Drawing.Point(6, 3);
             this.deviceList.Name = "deviceList";
             this.deviceList.Size = new System.Drawing.Size(794, 168);
             this.deviceList.TabIndex = 2;
