@@ -21,11 +21,17 @@ namespace OmloxBackend
 
         public GeoCoordinate getPosition()
         {
+            /*
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
             watcher.TryStart(false, TimeSpan.FromSeconds(3));
             GeoCoordinate coord = watcher.Position.Location;
             
             return coord;
+            */
+            return null;
+
+            //fix?: https://stackoverflow.com/questions/14435585/c-sharp-desktop-application-doesnt-share-my-physical-location/14645837#14645837
+
         }
 
 
@@ -254,6 +260,24 @@ namespace OmloxBackend
                 value = value.Substring(0, maxLength);
             }
             return value;
+        }
+
+
+        /*
+        get Geocoordinates by given address
+
+        params: string street
+                string housenumber
+                string city
+                string postalcode
+                string country
+
+        return: string[] with lat and lon
+                null if address not found
+         */
+        public string[] GetCoordinatesByAddress(string street, string housenumber, string city, string postalcode, string country)
+        {
+            return dhp.getCoordinatesByAddress( street, housenumber, city, postalcode, country);
         }
     }
 }

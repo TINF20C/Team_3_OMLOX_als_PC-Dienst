@@ -15,6 +15,11 @@ using System.Collections;
 
 namespace OmloxBackend
 {
+    public class LatLon
+    {
+        public string lat { get; set; }
+        public string lon { get; set; }
+    }
 
     public class AddressWrapper
     {
@@ -336,14 +341,55 @@ namespace OmloxBackend
          */
         public address getAddressByCoordinates(double lat, double lon)
         {
-            var rsClient = new RestClient("https://nominatim.openstreetmap.org/reverse?format=json&lat=" + lat.ToString("G", new CultureInfo("en-US", false)) + "&lon=" + lon.ToString("G", new CultureInfo("en-US", false)));
+            var rsClient = new RestClient("https://nominatim.openstreetmap.org/reverse");
             rsClient.AddDefaultHeader("User-Agent", "PostmanRuntime/7.29.0");
             var request = new RestRequest(Method.GET);
+            request.AddParameter("format", "json");
+            request.AddParameter("lat", lat.ToString("G", new CultureInfo("en-US", false)));
+            request.AddParameter("lon", lon.ToString("G", new CultureInfo("en-US", false)));
 
             var response = rsClient.Get(request);
             AddressWrapper address = JsonConvert.DeserializeObject<AddressWrapper>(response.Content.ToString());
             return address.address;
 
+        }
+
+
+        /*
+        get Geocoordinates by given address
+        uses API from Openstreetmap
+        more details: https://nominatim.org/release-docs/develop/api/Search/
+
+        params: string street
+                string housenumber
+                string city
+                string postalcode
+                string country
+
+        return: string[] with lat and lon
+                null if address not found
+         */
+        public string[] getCoordinatesByAddress(string street, string housenumber, string city, string postalcode, string country)
+        {
+            var rsClient = new RestClient("https://nominatim.openstreetmap.org/search");
+            rsClient.AddDefaultHeader("User-Agent", "PostmanRuntime/7.29.0");
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("format", "json");
+            request.AddParameter("street", housenumber + " " + street);
+            request.AddParameter("county", city);
+            request.AddParameter("country", country);
+            request.AddParameter("postalcode", postalcode);
+
+            var response = rsClient.Get(request);
+            LatLon[] latlon = JsonConvert.DeserializeObject<LatLon[]>(response.Content.ToString());
+            if (latlon.Length == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return new string[] { latlon[0].lat, latlon[0].lon };
+            }
         }
     }
 }
