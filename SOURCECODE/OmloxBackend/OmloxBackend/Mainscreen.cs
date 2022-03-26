@@ -29,7 +29,7 @@ namespace OmloxBackend
            new System.Windows.Forms.FormClosedEventHandler(this.Mainscreen_FormClosed);
         }
 
-        private async void updateList()
+        public async void updateList()
         {            
             trackables = controller.GetTrackableSummary();
             deviceList.Items.Clear();
@@ -37,6 +37,8 @@ namespace OmloxBackend
             for (int i = 0; i < trackables.Length; i++)
             {
                 string name = trackables[i].name == "" ? "unknown": trackables[i].name;
+                double[] latlon = trackables[i].geometry.GetLatestLatLon();
+                name = name + "|     Lat: " + latlon[0] + " Long: " + latlon[1];
                 idMap.Add(i, trackables[i].id);
                 deviceList.Items.Add(name);
             }
@@ -55,31 +57,17 @@ namespace OmloxBackend
         private void deviceAddButton_Click(object sender, EventArgs e)
         {
             
-            AddItemForm af = new AddItemForm(this);
+            AddItemForm af = new AddItemForm(this, controller, false, null);
             af.StartPosition = FormStartPosition.CenterScreen;
             af.Show(this);
         }
 
-        public void AddTrackable(string name)
+        public void AddTrackable(string name, double longitude, double latitude)
         {
-            //TODO Samir:   Server nach aktuellem Gerät fragen und dann mit 'deviceList.Items.Add([devicename])' hinzufügen.
-            //              Eventuell noch prüfen, ob das Gerät schon vorhanden ist.
-
-            GeoCoordinate position = controller.getPosition();
-            
-            // wenn position nicht bekannt -> manuelle abfrage
-            if (position.IsUnknown)
-            {
-                //zeige fenster zur manuellen eingabe
-            } 
-            else
-            {
-                //schicke daten ab
-                controller.createTrackable(name, position.Latitude, position.Longitude);
-            }
+            controller.createTrackable(name, latitude, longitude);
             updateList();
         }
-
+        
         private void deviceRemoveButton_Click(object sender, EventArgs e)
         {
 
@@ -118,6 +106,22 @@ namespace OmloxBackend
         private void userDocButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/TINF20C/Team_3_OMLOX_als_PC-Dienst/wiki");
+        }
+
+        private void updateDeviceButton_Click(object sender, EventArgs e)
+        {
+            string id = null;
+            foreach (int index in deviceList.CheckedIndices)
+            {
+                id = trackables[index].id;
+                break;
+            }
+            if (id == null) return;
+            
+            AddItemForm adf = new AddItemForm(this, controller, true, id);
+            adf.StartPosition = FormStartPosition.CenterScreen;
+            adf.Show(this);
+            
         }
     }
 }

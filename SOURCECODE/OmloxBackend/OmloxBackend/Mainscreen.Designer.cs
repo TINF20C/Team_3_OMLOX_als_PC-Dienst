@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.userDocButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.updateDeviceButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -144,12 +145,25 @@
             this.panel2.Size = new System.Drawing.Size(794, 181);
             this.panel2.TabIndex = 8;
             // 
+            // updateDeviceButton
+            // 
+            this.updateDeviceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(244)))), ((int)(((byte)(144)))));
+            this.updateDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateDeviceButton.Location = new System.Drawing.Point(96, 251);
+            this.updateDeviceButton.Name = "updateDeviceButton";
+            this.updateDeviceButton.Size = new System.Drawing.Size(107, 23);
+            this.updateDeviceButton.TabIndex = 9;
+            this.updateDeviceButton.Text = "Update Location";
+            this.updateDeviceButton.UseVisualStyleBackColor = false;
+            this.updateDeviceButton.Click += new System.EventHandler(this.updateDeviceButton_Click);
+            // 
             // Mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.updateDeviceButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -171,5 +185,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button userDocButton;
+        private System.Windows.Forms.Button updateDeviceButton;
     }
 }

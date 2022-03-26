@@ -43,7 +43,7 @@ namespace OmloxBackend
         public bool createTrackable(String name, double latCoord, double longCoord)
         {
             //if a trackable with BoardID exists return false
-            if (getTrackableByBoardID() != null) return false;
+           // if (getTrackableByBoardID() != null) return false;
 
             Trackable_Post trackable = new Trackable_Post();
             trackable.name = name;
@@ -183,7 +183,7 @@ namespace OmloxBackend
         {
             Trackable trackable = dhp.GetTrackable(id);
             //if trackable is not yours
-            if (trackable.location_providers[0].Equals(getBoardID())) return false;
+            //if (trackable.location_providers[0].Equals(getBoardID())) return false;
 
             trackable.geometry.AddLatLong(latCoord, lonCoord);
             return UpdateTrackable(trackable);
@@ -210,12 +210,17 @@ namespace OmloxBackend
         params: updated trackable
 
         return: true if succeeded
-                falde if not
+                false if not
          */
-        public address getAddressByCoordinates(Trackable trackable, int index)
+        public address GetAddressByIndex(Trackable trackable, int index)
         {
             double[] coordinates = trackable.geometry.getLatLon(index);
             return dhp.getAddressByCoordinates(coordinates[0], coordinates[1]);
+        }
+
+       public address GetAddressByCoordinates(double longitude, double latitude)
+        {            
+            return dhp.getAddressByCoordinates(latitude, longitude);
         }
 
         /*
@@ -224,13 +229,31 @@ namespace OmloxBackend
         params: updated trackable
 
         return: true if succeeded
-                falde if not
+                false if not
          */
-        public address getLatestAddress(Trackable trackable)
+        public address GetLatestAddress(Trackable trackable)
         {
             int last = (trackable.geometry.coordinates.Length / 2) -1;
             double[] coordinates = trackable.geometry.getLatLon(last);
             return dhp.getAddressByCoordinates(coordinates[0], coordinates[1]);
+        }
+
+        
+
+        public static string Truncate(string value, int maxLength)
+        {
+            if (value.Length < maxLength)
+            {
+                for(int i = value.Length; i < maxLength; i++)
+                {
+                    value += " ";
+                }
+            }
+            else
+            {
+                value = value.Substring(0, maxLength);
+            }
+            return value;
         }
     }
 }

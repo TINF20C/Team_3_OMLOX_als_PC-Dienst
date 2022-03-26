@@ -62,7 +62,12 @@ namespace OmloxBackend
         {
             return new double[2] { this.coordinates[0, index, 0], this.coordinates[0, index, 1] };
         }
-  
+        
+        public double[] GetLatestLatLon()
+        {
+            int index = this.coordinates.GetLength(1) - 1;
+            return getLatLon(index);
+        }
 
     }
 
