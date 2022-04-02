@@ -21,6 +21,12 @@ namespace OmloxBackend
         public string lon { get; set; }
     }
 
+    public class IPAPI_lat_lon
+    {
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+    }
+
     public class AddressWrapper
     {
         public address address { get; set; }
@@ -390,6 +396,17 @@ namespace OmloxBackend
             {
                 return new string[] { latlon[0].lat, latlon[0].lon };
             }
+        }
+
+        public double[] getGeocoordinates()
+        {
+            var rsClient = new RestClient("https://ipapi.co/json/");
+            rsClient.AddDefaultHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36");
+            var request = new RestRequest(Method.GET);
+
+            var response = rsClient.Get(request);
+            IPAPI_lat_lon latlon = JsonConvert.DeserializeObject<IPAPI_lat_lon>(response.Content.ToString());
+            return new double[] { latlon.latitude, latlon.longitude };
         }
     }
 }

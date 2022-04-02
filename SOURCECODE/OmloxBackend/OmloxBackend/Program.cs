@@ -21,6 +21,7 @@ namespace OmloxBackend
             
             msc.Show();
             Application.Run();
+
         }
     }
 }

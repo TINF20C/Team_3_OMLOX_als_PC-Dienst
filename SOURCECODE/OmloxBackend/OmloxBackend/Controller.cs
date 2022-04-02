@@ -279,5 +279,11 @@ namespace OmloxBackend
         {
             return dhp.getCoordinatesByAddress( street, housenumber, city, postalcode, country);
         }
+
+
+        public double[] GetGeocoordinates()
+        {
+            return dhp.getGeocoordinates();
+        }
     }
 }
