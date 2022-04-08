@@ -37,8 +37,8 @@ namespace OmloxBackend
             for (int i = 0; i < trackables.Length; i++)
             {
                 string name = trackables[i].name == "" ? "unknown": trackables[i].name;
-                double[] latlon = trackables[i].geometry.GetLatestLatLon();
-                name = name + "|     Lat: " + latlon[0] + " Long: " + latlon[1];
+                //double[] latlon = trackables[i].geometry.GetLatestLatLon();
+                //name = name + "|     Lat: " + latlon[0] + " Long: " + latlon[1];
                 idMap.Add(i, trackables[i].id);
                 deviceList.Items.Add(name);
             }
@@ -122,6 +122,21 @@ namespace OmloxBackend
             adf.StartPosition = FormStartPosition.CenterScreen;
             adf.Show(this);
             
+        }
+
+        private void showLocationButton_Click(object sender, EventArgs e)
+        {
+            Trackable trackable = null;
+            foreach (int index in deviceList.CheckedIndices)
+            {
+                trackable = trackables[index];
+                break;
+            }
+            if (trackable == null) return;
+
+            LocationForm locForm = new LocationForm(this, trackable);
+            locForm.StartPosition = FormStartPosition.CenterScreen;
+            locForm.Show(this);
         }
     }
 }

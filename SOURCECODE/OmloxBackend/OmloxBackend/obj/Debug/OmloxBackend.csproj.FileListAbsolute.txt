@@ -78,3 +78,4 @@ D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.CodeDom.dll
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\System.CodeDom.xml
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.AssemblyReference.cache
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.LocationForm.resources

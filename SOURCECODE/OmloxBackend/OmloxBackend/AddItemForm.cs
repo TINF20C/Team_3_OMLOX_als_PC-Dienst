@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace OmloxBackend
 {
@@ -41,8 +42,9 @@ namespace OmloxBackend
             {
                 if (textBox1.Text != null && longTextBox.Text != null && latTextBox.Text != null)
                 {
-                    textBox1.Text = Controller.Truncate(textBox1.Text, 30);
-                    ms.AddTrackable(textBox1.Text, Convert.ToDouble(longTextBox.Text), Convert.ToDouble(latTextBox.Text));
+                    double lon = double.Parse(longTextBox.Text, CultureInfo.InvariantCulture);
+                    double lat = double.Parse(latTextBox.Text, CultureInfo.InvariantCulture);
+                    ms.AddTrackable(textBox1.Text, lon, lat);
                     this.Close();
 
                 }
@@ -51,7 +53,9 @@ namespace OmloxBackend
             {
                 if(longTextBox.Text != null && latTextBox.Text != null)
                 {
-                    controller.UpdateTrackableCoordinates(trackId, Convert.ToDouble(longTextBox.Text), Convert.ToDouble(latTextBox.Text));
+                    double lon = double.Parse(longTextBox.Text, CultureInfo.InvariantCulture);
+                    double lat = double.Parse(latTextBox.Text, CultureInfo.InvariantCulture);
+                    controller.UpdateTrackableCoordinates(trackId, lat, lon);
                     ms.updateList();
                     this.Close();
                 }
@@ -60,25 +64,26 @@ namespace OmloxBackend
         //Get Position Button
         private void button1_Click(object sender, EventArgs e)
         {
-            GeoCoordinate position = controller.getPosition();
-            if (!position.IsUnknown)
-            {
-                address adr = controller.GetAddressByCoordinates(position.Latitude,position.Longitude);
-                streetTextBox.Text = adr.road;
-                numberTextBox.Text = adr.house_number;
-                cityTextBox.Text = adr.county;
-                postalTextBox.Text = adr.postcode;
-                stateTextBox.Text = adr.state;
-                countryTexBox.Text = adr.country;
-                longTextBox.Text = position.Longitude.ToString();
-                latTextBox.Text = position.Latitude.ToString();
-            }
+            double[] latlon = controller.GetGeocoordinates();
+            address adresse = controller.GetAddressByCoordinates(latlon[0], latlon[1]);
+
+            latTextBox.Text = latlon[0].ToString("G", new CultureInfo("en-US", false));
+            longTextBox.Text = latlon[1].ToString("G", new CultureInfo("en-US", false));
+
+            streetTextBox.Text = adresse.road;
+            numberTextBox.Text = adresse.house_number;
+            cityTextBox.Text = adresse.city;
+            postalTextBox.Text = adresse.postcode;
+            stateTextBox.Text = adresse.state;
+            countryTexBox.Text = adresse.country;
         }
 
         //Get Long/Lat Button
         private void button3_Click(object sender, EventArgs e)
         {
-            //TODO Samir: Adresse zu Long/Lat
+            string[] coordinates = controller.GetCoordinatesByAddress(streetTextBox.Text, numberTextBox.Text, cityTextBox.Text, postalTextBox.Text, countryTexBox.Text);
+            latTextBox.Text = coordinates[0];
+            longTextBox.Text = coordinates[1];
         }
     }
 }

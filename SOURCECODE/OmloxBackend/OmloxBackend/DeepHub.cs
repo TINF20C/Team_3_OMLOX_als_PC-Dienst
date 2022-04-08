@@ -36,7 +36,7 @@ namespace OmloxBackend
         public string house_number { get; set; }
         public string road { get; set; }
         public string city_block { get; set; }
-        public string county { get; set; }
+        public string city { get; set; }
         public string state { get; set; }
         public string postcode { get; set; }
         public string country { get; set; }
@@ -382,7 +382,7 @@ namespace OmloxBackend
             var request = new RestRequest(Method.GET);
             request.AddParameter("format", "json");
             request.AddParameter("street", housenumber + " " + street);
-            request.AddParameter("county", city);
+            request.AddParameter("city", city);
             request.AddParameter("country", country);
             request.AddParameter("postalcode", postalcode);
 

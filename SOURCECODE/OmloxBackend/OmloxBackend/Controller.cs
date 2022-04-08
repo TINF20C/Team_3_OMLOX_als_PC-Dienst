@@ -224,7 +224,7 @@ namespace OmloxBackend
             return dhp.getAddressByCoordinates(coordinates[0], coordinates[1]);
         }
 
-       public address GetAddressByCoordinates(double longitude, double latitude)
+       public address GetAddressByCoordinates(double latitude, double longitude)
         {            
             return dhp.getAddressByCoordinates(latitude, longitude);
         }
