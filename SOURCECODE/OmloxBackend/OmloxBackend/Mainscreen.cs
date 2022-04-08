@@ -20,8 +20,10 @@ namespace OmloxBackend
         Dictionary<int, string> idMap = new Dictionary<int, string>();
         public Mainscreen()
         {
-            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            
                    
             controller = new Controller();
             updateList();
@@ -98,14 +100,15 @@ namespace OmloxBackend
 
         }
 
-        private void deviceList_SelectedIndexChanged(object sender, EventArgs e)
+        private void deviceList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-
+            for (int ix = 0; ix < deviceList.Items.Count; ++ix)
+                if (ix != e.Index) deviceList.SetItemChecked(ix, false);
         }
 
         private void userDocButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/TINF20C/Team_3_OMLOX_als_PC-Dienst/wiki");
+            System.Diagnostics.Process.Start("https://github.com/TINF20C/Team_3_OMLOX_als_PC-Dienst/wiki/Omlox-Desktop-App-Instruction-manual");
         }
 
         private void updateDeviceButton_Click(object sender, EventArgs e)

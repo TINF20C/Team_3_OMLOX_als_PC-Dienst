@@ -17,12 +17,13 @@ namespace OmloxBackend
         Trackable trackable;
         public LocationForm(Mainscreen ms, Trackable trackable)
         {
-            this.ms = ms;
-            this.trackable = trackable;
             InitializeComponent();
+            
+            this.ms = ms;
+            this.trackable = trackable;            
             int length = trackable.geometry.coordinates.Length / 2;
             
-            for(int i = length-1; i >= 0; i--)
+            for(int i = 0; i < length; i++)
             {
                 double testDouble = trackable.geometry.coordinates[0, i, 0];
                 double testRound = Math.Round(trackable.geometry.coordinates[0, i, 0], 3);
@@ -31,10 +32,27 @@ namespace OmloxBackend
                 allLocationsListBox.Items.Add(s);
             }
         }
-
+        
         private void showOnMapButton_Click(object sender, EventArgs e)
         {
-
+            
+            int index = -1;
+            foreach (int fIndex in allLocationsListBox.CheckedIndices)
+            {
+                index = fIndex;
+                break;
+            }
+            if (index == -1) return;
+            
+            double [] latLon = trackable.geometry.getLatLon(index);
+           
+            System.Diagnostics.Process.Start("https://www.google.de/maps/search/" + latLon[0] + ",+" + latLon[1]);
+        }
+        
+        private void allLocationsListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < allLocationsListBox.Items.Count; ++ix)
+                if (ix != e.Index) allLocationsListBox.SetItemChecked(ix, false);
         }
     }
 }

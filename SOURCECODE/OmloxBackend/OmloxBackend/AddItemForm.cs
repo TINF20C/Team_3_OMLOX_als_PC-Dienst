@@ -85,5 +85,10 @@ namespace OmloxBackend
             latTextBox.Text = coordinates[0];
             longTextBox.Text = coordinates[1];
         }
+
+        private void AddItemForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

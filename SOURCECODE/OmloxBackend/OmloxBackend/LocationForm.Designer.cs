@@ -36,38 +36,44 @@
             // 
             // allLocationsListBox
             // 
+            this.allLocationsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.allLocationsListBox.ForeColor = System.Drawing.SystemColors.Window;
             this.allLocationsListBox.FormattingEnabled = true;
             this.allLocationsListBox.Location = new System.Drawing.Point(12, 27);
             this.allLocationsListBox.Name = "allLocationsListBox";
             this.allLocationsListBox.Size = new System.Drawing.Size(208, 439);
             this.allLocationsListBox.TabIndex = 0;
+            this.allLocationsListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.allLocationsListBox_ItemCheck);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "newest location";
+            this.label1.Text = "oldest location";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 469);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "oldest location";
+            this.label2.Text = "newest location";
             // 
             // showOnMapButton
             // 
+            this.showOnMapButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.showOnMapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showOnMapButton.ForeColor = System.Drawing.SystemColors.Window;
             this.showOnMapButton.Location = new System.Drawing.Point(269, 93);
             this.showOnMapButton.Name = "showOnMapButton";
             this.showOnMapButton.Size = new System.Drawing.Size(89, 23);
             this.showOnMapButton.TabIndex = 3;
             this.showOnMapButton.Text = "show on Map";
-            this.showOnMapButton.UseVisualStyleBackColor = true;
+            this.showOnMapButton.UseVisualStyleBackColor = false;
             this.showOnMapButton.Click += new System.EventHandler(this.showOnMapButton_Click);
             // 
             // LocationForm

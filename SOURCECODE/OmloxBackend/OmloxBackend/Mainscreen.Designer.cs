@@ -55,7 +55,7 @@
             this.deviceList.Name = "deviceList";
             this.deviceList.Size = new System.Drawing.Size(454, 168);
             this.deviceList.TabIndex = 2;
-            this.deviceList.SelectedIndexChanged += new System.EventHandler(this.deviceList_SelectedIndexChanged);
+            this.deviceList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.deviceList_ItemCheck);
             // 
             // deviceAddButton
             // 
