@@ -14,7 +14,6 @@ namespace OmloxBackend
         [STAThread]
         static void Main()
         {
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            
@@ -22,12 +21,7 @@ namespace OmloxBackend
             
             msc.Show();
             Application.Run();
-            /*
-            Controller controller = new Controller();
-            Trackable tr = controller.getTrackableByName("PC");
-            address ad = controller.getLatestAddress(tr);
-            Console.WriteLine("hello");
-            */
+
         }
     }
 }
