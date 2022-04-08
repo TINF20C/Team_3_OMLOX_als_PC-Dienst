@@ -46,7 +46,7 @@ namespace OmloxBackend
             
             double [] latLon = trackable.geometry.getLatLon(index);
            
-            System.Diagnostics.Process.Start("https://www.google.de/maps/search/" + latLon[0] + ",+" + latLon[1]);
+            System.Diagnostics.Process.Start("https://www.google.de/maps/search/" + latLon[0].ToString("G", new CultureInfo("en-US", false)) + ",+" + latLon[1].ToString("G", new CultureInfo("en-US", false)));
         }
         
         private void allLocationsListBox_ItemCheck(object sender, ItemCheckEventArgs e)
