@@ -50,18 +50,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "oldest location";
+            this.label1.Text = "newest location";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 469);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "newest location";
+            this.label2.Text = "oldest location";
             // 
             // showOnMapButton
             // 
