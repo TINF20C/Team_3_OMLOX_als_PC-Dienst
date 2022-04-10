@@ -40,18 +40,25 @@ namespace OmloxBackend
         {
             if (!updateDevice)
             {
-                if (textBox1.Text != null && longTextBox.Text != null && latTextBox.Text != null)
+                if (textBox1.Text != "" && longTextBox.Text != "" && latTextBox.Text != "")
                 {
-                    double lon = double.Parse(longTextBox.Text, CultureInfo.InvariantCulture);
-                    double lat = double.Parse(latTextBox.Text, CultureInfo.InvariantCulture);
-                    ms.AddTrackable(textBox1.Text, lon, lat);
-                    this.Close();
+                    try
+                    {
+                        double lon = double.Parse(longTextBox.Text, CultureInfo.InvariantCulture);
+                        double lat = double.Parse(latTextBox.Text, CultureInfo.InvariantCulture);
+                        ms.AddTrackable(textBox1.Text, lon, lat);
+                        this.Close();
+                    }
+                    catch (FormatException ex)
+                    {
+                        return;
+                    }
 
                 }
             }
             else
             {
-                if(longTextBox.Text != null && latTextBox.Text != null)
+                if(longTextBox.Text != "" && latTextBox.Text != "")
                 {
                     double lon = double.Parse(longTextBox.Text, CultureInfo.InvariantCulture);
                     double lat = double.Parse(latTextBox.Text, CultureInfo.InvariantCulture);
@@ -82,8 +89,11 @@ namespace OmloxBackend
         private void button3_Click(object sender, EventArgs e)
         {
             string[] coordinates = controller.GetCoordinatesByAddress(streetTextBox.Text, numberTextBox.Text, cityTextBox.Text, postalTextBox.Text, countryTexBox.Text);
-            latTextBox.Text = coordinates[0];
-            longTextBox.Text = coordinates[1];
+            if (coordinates != null)
+            {
+                latTextBox.Text = coordinates[0];
+                longTextBox.Text = coordinates[1];
+            }
         }
 
         private void AddItemForm_Load(object sender, EventArgs e)

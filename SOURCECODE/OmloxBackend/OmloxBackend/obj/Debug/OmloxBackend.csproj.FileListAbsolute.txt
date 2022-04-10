@@ -80,3 +80,7 @@ C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxB
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.csproj.AssemblyReference.cache
 D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.LocationForm.resources
 C:\Users\tubaa\Source\Repos\TINF20C\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.LocationForm.resources
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\OmloxBackend.exe.manifest
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\bin\Debug\OmloxBackend.application
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.exe.manifest
+D:\Dokumente\SWE\Team_3_OMLOX_als_PC-Dienst\SOURCECODE\OmloxBackend\OmloxBackend\obj\Debug\OmloxBackend.application
