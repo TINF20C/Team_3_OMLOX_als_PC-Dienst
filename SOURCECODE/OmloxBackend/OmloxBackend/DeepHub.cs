@@ -282,7 +282,7 @@ namespace OmloxBackend
             request.AddJsonBody(test); //Add objekt in the method
             var response = rsClient.Post(request);
             
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (response.IsSuccessful)
             {
                 return true;
             }

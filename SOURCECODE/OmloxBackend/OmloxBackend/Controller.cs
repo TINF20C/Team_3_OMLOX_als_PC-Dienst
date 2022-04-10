@@ -19,21 +19,6 @@ namespace OmloxBackend
             this.dhp = new DeepHub();
         }
 
-        public GeoCoordinate getPosition()
-        {
-            /*
-            GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            watcher.TryStart(false, TimeSpan.FromSeconds(3));
-            GeoCoordinate coord = watcher.Position.Location;
-            
-            return coord;
-            */
-            return null;
-
-            //fix?: https://stackoverflow.com/questions/14435585/c-sharp-desktop-application-doesnt-share-my-physical-location/14645837#14645837
-
-        }
-
 
         /*
         create a new trackable
@@ -49,7 +34,7 @@ namespace OmloxBackend
         public bool createTrackable(String name, double latCoord, double longCoord)
         {
             //if a trackable with BoardID exists return false
-           // if (getTrackableByBoardID() != null) return false;
+            if (getTrackableByBoardID() != null) return false;
 
             Trackable_Post trackable = new Trackable_Post();
             trackable.name = name;
@@ -149,14 +134,14 @@ namespace OmloxBackend
 
 
 
-            /*
-            get all trackables (not used)
+        /*
+        get all trackables (not used)
 
-            params: -
+        params: -
 
-            return: String array
-             */
-            public String[] GetTrackables()
+        return: String array
+        */
+        public String[] GetTrackables()
         {
             return dhp.GetTrackables();
         }
@@ -245,7 +230,7 @@ namespace OmloxBackend
         }
 
         
-
+        /*
         public static string Truncate(string value, int maxLength)
         {
             if (value.Length < maxLength)
@@ -261,6 +246,7 @@ namespace OmloxBackend
             }
             return value;
         }
+        */
 
 
         /*
@@ -281,6 +267,11 @@ namespace OmloxBackend
         }
 
 
+        /*
+        get Geocoordinates by IP
+
+        return: double[] with lat and lon
+         */
         public double[] GetGeocoordinates()
         {
             return dhp.getGeocoordinates();

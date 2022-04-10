@@ -58,26 +58,56 @@ namespace OmloxBackend
 
         private void deviceAddButton_Click(object sender, EventArgs e)
         {
-            
-            AddItemForm af = new AddItemForm(this, controller, false, null);
-            af.StartPosition = FormStartPosition.CenterScreen;
-            af.Show(this);
+            if(controller.getTrackableByBoardID() == null)
+            {
+                AddItemForm af = new AddItemForm(this, controller, false, null);
+                af.StartPosition = FormStartPosition.CenterScreen;
+                af.Show(this);
+            }
+            else
+            {
+                MessageBox.Show("There is already a device linked with your Hardware.",
+                    "Error adding your device",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         public void AddTrackable(string name, double longitude, double latitude)
         {
-            controller.createTrackable(name, latitude, longitude);
+            bool success = controller.createTrackable(name, latitude, longitude);
+            if (!success)
+            {
+                MessageBox.Show("There is already a device linked with your Hardware.", 
+                    "Error adding your device", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+            }
             updateList();
         }
         
         private void deviceRemoveButton_Click(object sender, EventArgs e)
         {
-
+            /*
             foreach(int index in deviceList.CheckedIndices)
             {
                 controller.DeleteTrackable(idMap[index]);
             }    
             updateList();
+            */
+            Trackable tr = controller.getTrackableByBoardID();
+            if (tr != null)
+            {
+                controller.DeleteTrackable(tr.id);
+                updateList();
+            }
+            else
+            {
+                MessageBox.Show("There is no device connected with your Hardware to delete.",
+                    "Error removing your device",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -113,6 +143,7 @@ namespace OmloxBackend
 
         private void updateDeviceButton_Click(object sender, EventArgs e)
         {
+            /*
             string id = null;
             foreach (int index in deviceList.CheckedIndices)
             {
@@ -124,7 +155,13 @@ namespace OmloxBackend
             AddItemForm adf = new AddItemForm(this, controller, true, id);
             adf.StartPosition = FormStartPosition.CenterScreen;
             adf.Show(this);
-            
+            */
+            Trackable tr = controller.getTrackableByBoardID();
+
+            AddItemForm adf = new AddItemForm(this, controller, true, tr.id);
+            adf.StartPosition = FormStartPosition.CenterScreen;
+            adf.Show(this);
+
         }
 
         private void showLocationButton_Click(object sender, EventArgs e)
