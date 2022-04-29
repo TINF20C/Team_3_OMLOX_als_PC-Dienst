@@ -36,7 +36,7 @@
             // 
             // allLocationsListBox
             // 
-            this.allLocationsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.allLocationsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.allLocationsListBox.ForeColor = System.Drawing.SystemColors.Window;
             this.allLocationsListBox.FormattingEnabled = true;
             this.allLocationsListBox.Location = new System.Drawing.Point(12, 27);
@@ -65,7 +65,7 @@
             // 
             // showOnMapButton
             // 
-            this.showOnMapButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.showOnMapButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.showOnMapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showOnMapButton.ForeColor = System.Drawing.SystemColors.Window;
             this.showOnMapButton.Location = new System.Drawing.Point(269, 93);

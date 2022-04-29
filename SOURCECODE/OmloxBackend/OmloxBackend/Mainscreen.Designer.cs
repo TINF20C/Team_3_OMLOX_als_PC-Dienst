@@ -42,7 +42,7 @@
             // 
             // deviceList
             // 
-            this.deviceList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.deviceList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.deviceList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.deviceList.CheckOnClick = true;
             this.deviceList.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +116,7 @@
             // 
             // updateDeviceButton
             // 
-            this.updateDeviceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.updateDeviceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.updateDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateDeviceButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.updateDeviceButton.Location = new System.Drawing.Point(359, 59);
@@ -129,7 +129,7 @@
             // 
             // showLocationButton
             // 
-            this.showLocationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(129)))), ((int)(((byte)(176)))));
+            this.showLocationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.showLocationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showLocationButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.showLocationButton.Location = new System.Drawing.Point(357, 12);
