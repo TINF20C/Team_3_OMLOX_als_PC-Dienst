@@ -39,16 +39,16 @@
             this.allLocationsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.allLocationsListBox.ForeColor = System.Drawing.SystemColors.Window;
             this.allLocationsListBox.FormattingEnabled = true;
-            this.allLocationsListBox.Location = new System.Drawing.Point(12, 27);
+            this.allLocationsListBox.Location = new System.Drawing.Point(12, 57);
             this.allLocationsListBox.Name = "allLocationsListBox";
-            this.allLocationsListBox.Size = new System.Drawing.Size(208, 439);
+            this.allLocationsListBox.Size = new System.Drawing.Size(208, 229);
             this.allLocationsListBox.TabIndex = 0;
             this.allLocationsListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.allLocationsListBox_ItemCheck);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 9);
+            this.label1.Location = new System.Drawing.Point(12, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 469);
+            this.label2.Location = new System.Drawing.Point(12, 289);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.showOnMapButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))));
             this.showOnMapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showOnMapButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.showOnMapButton.Location = new System.Drawing.Point(269, 93);
+            this.showOnMapButton.Location = new System.Drawing.Point(15, 12);
             this.showOnMapButton.Name = "showOnMapButton";
             this.showOnMapButton.Size = new System.Drawing.Size(89, 23);
             this.showOnMapButton.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 486);
+            this.ClientSize = new System.Drawing.Size(242, 308);
             this.Controls.Add(this.showOnMapButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
